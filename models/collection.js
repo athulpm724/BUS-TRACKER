@@ -14,12 +14,33 @@ const busSchema=mongoose.Schema({
     
 })
 
+const userSchema=mongoose.Schema({
+    username:String,
+    password:String
+})
+
+const routSchema=mongoose.Schema({
+    busname:String,
+    stopname:[]
+})
+
+const adminSchema=mongoose.Schema({
+    adminName:String,
+    adminPass:String
+})
+
 //model - collection name
 
 const busLoc=new mongoose.model("buslocations",busSchema)
 
+const users=new mongoose.model("userbase",userSchema)
+
+const routs=new mongoose.model("stops",routSchema)
+
+const admins=new mongoose.model('admins',adminSchema)
+
 
 //export model - to import in another files
 
-module.exports = busLoc
+module.exports = {busLoc,users,routs,admins}
 
